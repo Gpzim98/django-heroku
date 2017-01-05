@@ -1,6 +1,9 @@
 # django-heroku
 Minimal configuration to host a Django project at Heroku
 
+## Create the django project
+* django-admin startproject myproject
+
 ## Hidding instance configuration
 * pip install python-decouple
 * create .env file at the root path and insert the following variables
@@ -49,3 +52,12 @@ pip freeze > requirements.txt
 
 ## Create a file runtime.txt and add the following core
 * python-3.5.0
+
+## Creating the app at Heroku
+* heroku apps:create ireland-gnib
+
+### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
+* heroku config:push
+
+### To show heroku configs do
+* heroku config 
