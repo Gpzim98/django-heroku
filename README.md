@@ -1,8 +1,18 @@
 # django-heroku
 Minimal configuration to host a Django project at Heroku
 
+## Create your virtuanenv
+* virtualenv -p python3 .vEnv
+* . .vEnv/bin/activate
+
+## Installing django
+* pip install django
+
 ## Create the django project
 * django-admin startproject myproject
+* git init to start the repository
+* git add .
+* git commit -m 'First commit'
 
 ## Hidding instance configuration
 * pip install python-decouple
@@ -18,7 +28,7 @@ Minimal configuration to host a Django project at Heroku
 
 ## Configuring the Daba Base
 * pip install dj-database-url
-* 
+
 
 ### Settings.py
 * from dj_database_url import parse as dburl
@@ -54,10 +64,31 @@ pip freeze > requirements.txt
 * python-3.5.0
 
 ## Creating the app at Heroku
-* heroku apps:create ireland-gnib
+* heroku apps:create app-name
 
 ### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
 * heroku config:push
 
 ### To show heroku configs do
 * heroku config 
+
+## Publishing the app
+* Create the git ignore
+.idea ( see the name for you IDE)
+*.sqlite3 (If you are using sqlite3)
+.vEnv (Name of your virtuan env)
+*pyc 
+
+* git add .
+* git commit -m 'Configuring the app'
+* git push heroku master --force
+
+## Setting the allower hosts
+* include your address at the ALLOWED_HOSTS directives in settings.py
+
+## EXTRAS
+### You may need to disable the collectstatic
+* heroku config:set DISABLE_COLLECTSTATIC=1
+
+### Changing a specific configuration
+* heroku config:set DEBUG=True
