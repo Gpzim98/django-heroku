@@ -92,6 +92,12 @@ Remember to grab the address of the app in this point
 * git commit -m 'Configuring the app'
 * git push heroku master --force
 
+## Creating the data base
+* heroku run python3 manage.py migrate
+
+## Creating the Django admin user
+* heroku run python3 manage.py createsuperuser
+
 ## EXTRAS
 ### You may need to disable the collectstatic
 * heroku config:set DISABLE_COLLECTSTATIC=1
