@@ -54,9 +54,13 @@ pip install dj-static
 ### Settings.py
 * STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-## Create a requirements.txt
-pip freeze > requirements.txt
-* Include: gunicorn and psycopg2 manually to avoid installing in your dev enviroment
+## Create a requirements-dev.txt
+pip freeze > requirements-dev.txt
+
+## Create a file requirements.txt file and include reference to previows file and add two more requirements
+-r requirements-dev.txt
+gunicorn
+psycopg2
 
 ## Create a file Procfile and add the following code
 * web: gunicorn website.wsgi --log-file -
