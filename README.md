@@ -76,6 +76,10 @@ pip freeze > requirements-dev.txt
 ## Creating the app at Heroku
 You should install heroku CLI tools in your computer previously ( See http://bit.ly/2jCgJYW ) 
 * heroku apps:create app-name
+Remember to grab the address of the app in this point
+
+## Setting the allowed hosts
+* include your address at the ALLOWED_HOSTS directives in settings.py - Just the domain, make sure that you will take the protocol and slashes from the string
 
 ### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
 * heroku config:push
@@ -87,9 +91,6 @@ You should install heroku CLI tools in your computer previously ( See http://bit
 * git add .
 * git commit -m 'Configuring the app'
 * git push heroku master --force
-
-## Setting the allowed hosts
-* include your address at the ALLOWED_HOSTS directives in settings.py
 
 ## EXTRAS
 ### You may need to disable the collectstatic
