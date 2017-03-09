@@ -17,6 +17,11 @@ Minimal configuration to host a Django project at Heroku
 
 ## Creating the Git repository
 * git init 
+* Create a file called .gitignore with the following content
+**.idea (see the name for you IDE)
+** *.sqlite3 (If you are using sqlite3)
+** .vEnv (Name of your virtuan env)
+** *pyc 
 * git add .
 * git commit -m 'First commit'
 
@@ -79,12 +84,6 @@ You should install heroku CLI tools in your computer previously ( See http://bit
 * heroku config 
 
 ## Publishing the app
-* Create the git ignore
-.idea ( see the name for you IDE)
-*.sqlite3 (If you are using sqlite3)
-.vEnv (Name of your virtuan env)
-*pyc 
-
 * git add .
 * git commit -m 'Configuring the app'
 * git push heroku master --force
