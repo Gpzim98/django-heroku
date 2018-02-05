@@ -81,9 +81,12 @@ Remember to grab the address of the app in this point
 ## Setting the allowed hosts
 * include your address at the ALLOWED_HOSTS directives in settings.py - Just the domain, make sure that you will take the protocol and slashes from the string
 
+## Heroku install config plugin
+* heroku plugins:install heroku-config
+
 ### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
 * heroku plugins:install heroku-config
-* heroku config:push
+* heroku config:push -a
 
 ### To show heroku configs do
 * heroku config 
