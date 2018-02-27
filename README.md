@@ -17,11 +17,16 @@ Minimal configuration to host a Django project at Heroku
 
 ## Creating the Git repository
 * git init 
-* Create a file called .gitignore with the following content
-**.idea (see the name for you IDE)
-** *.sqlite3 (If you are using sqlite3)
-** .vEnv (Name of your virtuan env)
-** *pyc 
+* Create a file called `.gitignore` with the following content:
+```
+# See the name for you IDE
+.idea
+# If you are using sqlite3
+*.sqlite3
+# Name of your virtuan env
+.vEnv
+*pyc
+```
 * git add .
 * git commit -m 'First commit'
 
