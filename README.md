@@ -41,7 +41,7 @@ Minimal configuration to host a Django project at Heroku
 * SECRET_KEY = config('SECRET_KEY')
 * DEBUG = config('DEBUG', default=False, cast=bool)
 
-## Configuring the Data Base
+## Configuring the Data Base (You don't need that if you already had an database).
 * pip install dj-database-url
 
 ### Settings.py
@@ -57,9 +57,10 @@ DATABASES = {
 ## Static files 
 pip install dj-static
 
-### wsgi
+### wsgi 
 * from dj_static import Cling
 * application = Cling(get_wsgi_application())
+* Also don't forget to check "DJANGO_SETTINGS_MODULE". It is prone to frequent mistakes.
 
 ### Settings.py
 * STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -73,14 +74,18 @@ pip freeze > requirements-dev.txt
 * psycopg2
 
 ## Create a file Procfile and add the following code
-* web: gunicorn website.wsgi --log-file -
+* web: gunicorn project.wsgi
+* You can check in django website or heroku website for more information:
+https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/gunicorn/
+https://devcenter.heroku.com/articles/django-app-configuration
 
 ## Create a file runtime.txt and add the following core
-* python-3.6.0
+* python-3.6.0 (You can currently use "python-3.7.3")
 
 ## Creating the app at Heroku
 You should install heroku CLI tools in your computer previously ( See http://bit.ly/2jCgJYW ) 
-* heroku apps:create app-name
+* heroku apps:create app-name (you can create by heroku it's self if you wanted.)
+You can also login in heroku by: heroku login
 Remember to grab the address of the app in this point
 
 ## Setting the allowed hosts
@@ -95,21 +100,25 @@ Remember to grab the address of the app in this point
 
 ### To show heroku configs do
 * heroku config 
+(check this, if you fail changing by code, try changing by heroku dashboard)
 
 ## Publishing the app
 * git add .
 * git commit -m 'Configuring the app'
-* git push heroku master --force
+* git push heroku master --force (you don't need "--force")
 
-## Creating the data base
+## Creating the data base (if you are using your own data base you don't need it, if was migrated there)
 * heroku run python3 manage.py migrate
 
 ## Creating the Django admin user
-* heroku run python3 manage.py createsuperuser
+* heroku run python3 manage.py createsuperuser (the same as above)
 
 ## EXTRAS
 ### You may need to disable the collectstatic
 * heroku config:set DISABLE_COLLECTSTATIC=1
+
+### Also recommend set this configuration to your heroku settings
+* WEB_CONCURRENCY = 3
 
 ### Changing a specific configuration
 * heroku config:set DEBUG=True
