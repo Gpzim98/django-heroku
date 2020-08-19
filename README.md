@@ -96,7 +96,7 @@ Remember to grab the address of the app in this point
 
 ### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
 * heroku plugins:install heroku-config
-* heroku config:push -a
+* heroku config:push --app app-name
 
 ### To show heroku configs do
 * heroku config 
