@@ -7,7 +7,7 @@ Minimal configuration to host a Django project at Heroku
 
 ## Create and activate your virtuanenv
 * virtualenv -p python3 .vEnv
-* . .vEnv/bin/activate
+* source/vEnv/bin/activate
 
 ## Installing django
 * pip install django
@@ -33,8 +33,9 @@ Minimal configuration to host a Django project at Heroku
 ## Hidding instance configuration
 * pip install python-decouple
 * create an .env file at the root path and insert the following variables
-- SECRET_KEY=Your$eCretKeyHere (Get this secrety key from the settings.py)
+- SECRET_KEY=Your$eCretKeyHere (Get this secret key from the settings.py)
 - DEBUG=True
+-(create environment variables for all the confidential information including email, password, secret etc for application security)
 
 ### Settings.py
 * from decouple import config
@@ -122,3 +123,7 @@ Remember to grab the address of the app in this point
 
 ### Changing a specific configuration
 * heroku config:set DEBUG=True
+* (Make DEBUG=False before bringing app into production for security of your application)
+
+### For more reference refer: 
+* https://youtu.be/kBwhtEIXGII
