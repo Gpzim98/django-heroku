@@ -68,7 +68,7 @@ pip install dj-static
 ## Create a requirements-dev.txt
 pip freeze > requirements-dev.txt
 
-## Create a file requirements.txt file and include reference to previows file and add two more requirements
+## Create a file requirements.txt file and include reference to previous file and add two more requirements
 * -r requirements-dev.txt
 * gunicorn
 * psycopg2
@@ -86,7 +86,7 @@ https://devcenter.heroku.com/articles/django-app-configuration
 You should install heroku CLI tools in your computer previously ( See http://bit.ly/2jCgJYW ) 
 * heroku apps:create app-name (you can create by heroku it's self if you wanted.)
 You can also login in heroku by: heroku login
-Remember to grab the address of the app in this point
+Remember to grab the address of the app at this point
 
 ## Setting the allowed hosts
 * include your address at the ALLOWED_HOSTS directives in settings.py - Just the domain, make sure that you will take the protocol and slashes from the string
@@ -94,7 +94,7 @@ Remember to grab the address of the app in this point
 ## Heroku install config plugin
 * heroku plugins:install heroku-config
 
-### Sending configs from .env to Heroku ( You have to be inside tha folther where .env files is)
+### Sending configs from .env to Heroku ( You have to be inside tha folder where .env files is)
 * heroku plugins:install heroku-config
 * heroku config:push -a
 
@@ -107,7 +107,7 @@ Remember to grab the address of the app in this point
 * git commit -m 'Configuring the app'
 * git push heroku master --force (you don't need "--force")
 
-## Creating the data base (if you are using your own data base you don't need it, if was migrated there)
+## Creating the data base (if you are using your own database you don't need it, if was migrated there)
 * heroku run python3 manage.py migrate
 
 ## Creating the Django admin user
